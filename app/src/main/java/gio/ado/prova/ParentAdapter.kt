@@ -19,10 +19,10 @@ class ParentAdapter(private val list: List<Parent>) :
     override fun onBindViewHolder(holder: ParentAdapter.MyViewHolder, position: Int) {
         val sectionedParent = list[position]
 
-        holder.viewDataBinding.tvTitle.text = sectionedParent.section
+        holder.viewDataBinding.tvTitle.text = sectionedParent.date
 
         holder.viewDataBinding.recyclerParent.apply {
-            adapter = ChildAdapter(sectionedParent.list)
+            adapter = ChildAdapter(sectionedParent.dataList)
         }
     }
 

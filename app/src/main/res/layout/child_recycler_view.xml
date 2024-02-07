@@ -85,7 +85,7 @@
                                     android:layout_height="wrap_content"
                                     tools:text="5555 - CONSEGNA COMODATO D'USO"
                                     android:textColor="@color/splash_background"
-                                    android:textSize="13sp"
+                                    android:textSize="11sp"
                                     android:textStyle="bold" />
 
                             </LinearLayout>
@@ -99,7 +99,7 @@
 
                                 <ImageView
                                     android:layout_width="wrap_content"
-                                    android:layout_height="18dp"
+                                    android:layout_height="14dp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginEnd="4dp"
                                     android:scaleType="fitCenter"
@@ -113,7 +113,7 @@
                                     android:ellipsize="end"
                                     android:maxLines="1"
                                     android:textColor="@android:color/black"
-                                    android:textSize="13sp"
+                                    android:textSize="11sp"
                                     tools:text="Laura Palermo" />
 
                             </LinearLayout>
@@ -132,7 +132,7 @@
 
                                     <ImageView
                                         android:layout_width="wrap_content"
-                                        android:layout_height="18dp"
+                                        android:layout_height="14dp"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginEnd="4dp"
                                         android:scaleType="fitCenter"
@@ -146,7 +146,7 @@
                                         android:ellipsize="end"
                                         android:maxLines="1"
                                         android:textColor="@android:color/black"
-                                        android:textSize="13sp"
+                                        android:textSize="11sp"
                                         tools:text="01/01/1970" />
 
                                 </LinearLayout>
@@ -161,8 +161,8 @@
                                     tools:visibility="visible">
 
                                     <ImageView
-                                        android:layout_width="16dp"
-                                        android:layout_height="16dp"
+                                        android:layout_width="14dp"
+                                        android:layout_height="14dp"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginStart="18dp"
                                         android:layout_marginEnd="4dp"
@@ -177,7 +177,7 @@
                                         android:ellipsize="end"
                                         android:maxLines="1"
                                         android:textColor="@android:color/black"
-                                        android:textSize="13sp"
+                                        android:textSize="11sp"
                                         tools:text="V235671111" />
                                     />
 
@@ -191,7 +191,8 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginTop="6dp"
                                 android:layout_marginBottom="2dp"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:visibility="invisible">
 
                                 <TextView
                                     android:id="@+id/txt_device_parcels"
@@ -247,8 +248,8 @@
 
                             <ImageView
                                 android:id="@+id/icon_edit"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
                                 android:layout_gravity="center_vertical"
                                 android:scaleType="fitCenter"
                                 android:src="@android:drawable/ic_menu_edit"
