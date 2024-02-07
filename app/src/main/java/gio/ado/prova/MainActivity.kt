@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         val sectionedParents = createSectionedParents(parents)
 
-        binding.mainRecycler.apply {
+        binding.recyclerViewDischargingMissions.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = ParentAdapter(sectionedParents)
         }

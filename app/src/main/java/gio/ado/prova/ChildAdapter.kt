@@ -18,7 +18,7 @@ class ChildAdapter(private val list: List<String>) :
     }
 
     override fun onBindViewHolder(holder: ChildAdapter.MyViewHolder, position: Int) {
-        holder.viewDataBinding.childText.text = list[position]
+        holder.viewDataBinding.colli2.text = list[position]
     }
 
     override fun getItemCount(): Int {

@@ -1,23 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp">
 
-
-        <TextView
-            android:id="@+id/child_text"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="8dp"
-            android:text="ajklgjlaghg" />
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginTop="2dp"
+            android:elevation="20dp"
+            app:contentPadding="4dp">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/horizontal_divider"
+                    android:dividerPadding="10dp"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/squareContainer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="4dp">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/box"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="6dp"
+                                app:cardBackgroundColor="@color/main_green_stroke_color"
+                                app:cardCornerRadius="4dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/img_check_list"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="center"
+                                    android:padding="12dp"
+                                    android:src="@drawable/ic_checklist"
+                                    app:tint="@color/white" />
+                            </androidx.cardview.widget.CardView>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="4dp"
+                            android:layout_weight="10"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginVertical="2dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/txt_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="5555 - CONSEGNA COMODATO D'USO"
+                                    android:textColor="@color/splash_background"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginVertical="2dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="18dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginEnd="4dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/ic_house" />
+
+                                <TextView
+                                    android:id="@+id/txt_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="13sp"
+                                    tools:text="Laura Palermo" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginVertical="2dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="18dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginEnd="4dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/ic_today" />
+
+                                    <TextView
+                                        android:id="@+id/txt_date_limit"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_vertical"
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="13sp"
+                                        tools:text="01/01/1970" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginVertical="2dp"
+                                    android:layout_marginLeft="4dp"
+                                    android:orientation="horizontal"
+                                    tools:visibility="visible">
+
+                                    <ImageView
+                                        android:layout_width="16dp"
+                                        android:layout_height="16dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginStart="18dp"
+                                        android:layout_marginEnd="4dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/ic_folder" />
+
+                                    <TextView
+                                        android:id="@+id/txt_number"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_vertical"
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="13sp"
+                                        tools:text="V235671111" />
+                                    />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="6dp"
+                                android:layout_marginBottom="2dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/txt_device_parcels"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:maxLines="1"
+                                    android:textColor="@color/design_default_color_error"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    android:textAllCaps="true"
+                                    android:text="Colli dispositivi:1" />
+
+
+                                <TextView
+                                    android:id="@+id/colli2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:maxLines="1"
+                                    android:textColor="@color/design_default_color_error"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    android:textAllCaps="true"
+                                    android:text="Colli consumabili:1" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="4dp">
+
+
+                            <CheckBox
+                                android:id="@+id/checkbox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/splash_background"
+                                android:textColor="@android:color/black"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/icon_edit"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:scaleType="fitCenter"
+                                android:src="@android:drawable/ic_menu_edit"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/black"
+                                android:visibility="invisible"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </layout>
