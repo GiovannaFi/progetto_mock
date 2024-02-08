@@ -8,23 +8,25 @@ import gio.ado.prova.databinding.ChildRecyclerViewBinding
 class ChildAdapter(private val list: List<Mission>) :
     RecyclerView.Adapter<ChildAdapter.MyViewHolder>() {
 
-    inner class MyViewHolder(val viewDataBinding: ChildRecyclerViewBinding) :
-        RecyclerView.ViewHolder(viewDataBinding.root)
+    inner class MyViewHolder(private val binding: ChildRecyclerViewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildAdapter.MyViewHolder {
-        val binding =
-            ChildRecyclerViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        fun bind(mission: Mission) {
+            binding.mission = mission
+            binding.executePendingBindings()
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val binding = ChildRecyclerViewBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
         return MyViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ChildAdapter.MyViewHolder, position: Int) {
-        holder.viewDataBinding.txtName.text = list[position].name
-        holder.viewDataBinding.txtTitle.text = list[position].title
-        holder.viewDataBinding.txtDateLimit.text = list[position].date
-        holder.viewDataBinding.txtNumber.text = list[position].numberDocument
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.bind(list[position])
     }
 
-    override fun getItemCount(): Int {
-       return list.size
-    }
+    override fun getItemCount(): Int = list.size
 }
