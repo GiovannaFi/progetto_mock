@@ -1,29 +1,52 @@
 package gio.ado.prova
 
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import gio.ado.prova.databinding.DateElementBinding
 import gio.ado.prova.databinding.MissionCardBinding
 
-class ParentAdapter(private val list: List<Element>
+class ParentAdapter(
+    private val list: List<Element>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val cardChecked: MutableList<Mission> = mutableListOf()
+
     inner class MissionViewHolder(private val binding: MissionCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(mission: Mission) {
-
             binding.checkbox.setOnCheckedChangeListener { buttonView, isChecked -> //TWO WAY BINDING, FIGATA!
-                if (mission in cardChecked){
+                if (mission in cardChecked) {
                     cardChecked.remove(mission)  //la card è nella lista, significa che è checkata e quindi la togliamo dalla lista per uncheckarla, posso usarla nel prossimo screen?
                     Log.d("CHECK FALSE?", "title = ${mission.title}, è $isChecked")
+                    TransitionManager.beginDelayedTransition(
+                        binding.openableCard,
+                        AutoTransition()
+                    )
+                    binding.openableCard.visibility = View.GONE
+
                 } else {   //se non è nella lista la aggiungiamo così si checka
                     cardChecked.add(mission)
                     Log.d("CHECK TRUE?", "title = ${mission.title}, è $isChecked")
+                    TransitionManager.beginDelayedTransition(
+                        binding.openableCard,
+                        AutoTransition()
+                    )
+                    binding.openableCard.visibility = View.VISIBLE
                 }
+            }
+
+            binding.arrowUp.setOnClickListener {
+                TransitionManager.beginDelayedTransition(
+                    binding.openableCard,
+                    AutoTransition()
+                )
+                binding.openableCard.visibility = View.GONE
             }
 
             binding.mission = mission

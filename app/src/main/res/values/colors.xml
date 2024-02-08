@@ -6,6 +6,8 @@
     <color name="main_green_stroke_color">#60bf04</color>
     <color name="splash_background">#03A9F4</color>
     <color name="colorAccent">#FFC107</color>
+    <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
+
 
 
 </resources>

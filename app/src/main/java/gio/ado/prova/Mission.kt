@@ -19,5 +19,5 @@ data class FakeNetworkObject(
     val date : String,
     val title : String,
     val numberDocument : String? = null,
-    val name : String
+    val name : String,
 )

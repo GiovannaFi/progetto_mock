@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 date = networkElement.date,
                 title = networkElement.title,
                 numberDocument = networkElement.numberDocument,
-                name = networkElement.name
+                name = networkElement.name,
             )
         }
     }

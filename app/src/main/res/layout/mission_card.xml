@@ -14,19 +14,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp">
+        android:layout_marginBottom="18dp"
+        android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="4dp"
-            android:layout_marginTop="2dp"
-            android:elevation="20dp"
-            app:contentPadding="4dp">
+            android:layout_marginVertical="1dp"
+            android:padding="12dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="8dp"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -56,6 +58,7 @@
                                 android:layout_marginEnd="6dp"
                                 app:cardBackgroundColor="@{mission.numberDocument == null ? @color/orange : @color/main_green_stroke_color}"
                                 app:cardCornerRadius="4dp"
+                                tools:cardBackgroundColor="@color/main_green_stroke_color"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -277,5 +280,153 @@
                 </LinearLayout>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/openableCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginVertical="2dp"
+            android:layout_marginTop="2dp"
+            android:visibility="gone"
+            android:elevation="1dp"
+            app:contentPadding="4dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/textView_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="colli dispositivi"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/view2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btn_plus_left"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="20dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_plus_box"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_number_left"
+                    app:layout_constraintEnd_toStartOf="@id/txt_number_left"
+                    app:layout_constraintTop_toTopOf="@id/txt_number_left" />
+
+                <TextView
+                    android:id="@+id/txt_number_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/textView_left"
+                    app:layout_constraintStart_toStartOf="@id/textView_left"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_left"
+                    tools:text="1"/>
+
+                <ImageView
+                    android:id="@+id/btn_minus_left"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_minus"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_number_left"
+                    app:layout_constraintStart_toEndOf="@id/txt_number_left"
+                    app:layout_constraintTop_toTopOf="@id/txt_number_left" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="2dp"
+                    android:layout_height="50dp"
+                    android:background="@color/gray_btn_bg_pressed_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="colli consumabili"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/view2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/btn_plus_right"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="20dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_plus_box"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_number_right"
+                    app:layout_constraintEnd_toStartOf="@id/txt_number_right"
+                    app:layout_constraintTop_toTopOf="@id/txt_number_right" />
+
+                <TextView
+                    android:id="@+id/txt_number_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/textView_right"
+                    app:layout_constraintStart_toStartOf="@id/textView_right"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_right" />
+
+                <ImageView
+                    android:id="@+id/btn_minus_right"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_minus"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_number_right"
+                    app:layout_constraintStart_toEndOf="@id/txt_number_right"
+                    app:layout_constraintTop_toTopOf="@id/txt_number_right" />
+
+                <ImageView
+                    android:id="@+id/arrow_up"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_arrow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/black" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
     </LinearLayout>
 </layout>
