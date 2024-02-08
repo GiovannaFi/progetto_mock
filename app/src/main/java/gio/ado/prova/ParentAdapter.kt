@@ -1,32 +1,82 @@
 package gio.ado.prova
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import gio.ado.prova.databinding.ParentRecyclerViewBinding
+import gio.ado.prova.databinding.DateElementBinding
+import gio.ado.prova.databinding.MissionCardBinding
 
-class ParentAdapter(private val list: List<Parent>) :
-    RecyclerView.Adapter<ParentAdapter.MyViewHolder>() {
+class ParentAdapter(private val list: List<Element>
+) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    inner class MyViewHolder(val viewDataBinding: ParentRecyclerViewBinding) :
-        RecyclerView.ViewHolder(viewDataBinding.root)
+    val cardChecked: MutableList<Mission> = mutableListOf()
+    inner class MissionViewHolder(private val binding: MissionCardBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(mission: Mission) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParentAdapter.MyViewHolder {
-        val binding = ParentRecyclerViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(binding)
+            binding.checkbox.setOnCheckedChangeListener { buttonView, isChecked -> //TWO WAY BINDING, FIGATA!
+                if (mission in cardChecked){
+                    cardChecked.remove(mission)  //la card è nella lista, significa che è checkata e quindi la togliamo dalla lista per uncheckarla, posso usarla nel prossimo screen?
+                    Log.d("CHECK FALSE?", "title = ${mission.title}, è $isChecked")
+                } else {   //se non è nella lista la aggiungiamo così si checka
+                    cardChecked.add(mission)
+                    Log.d("CHECK TRUE?", "title = ${mission.title}, è $isChecked")
+                }
+            }
+
+            binding.mission = mission
+            binding.executePendingBindings()
+        }
     }
 
-    override fun onBindViewHolder(holder: ParentAdapter.MyViewHolder, position: Int) {
+    inner class DateViewHolder(private val viewDataBinding: DateElementBinding) :
+        RecyclerView.ViewHolder(viewDataBinding.root) {
+        fun bind(data: Date) {
+            viewDataBinding.tvTitle.text = data.date
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
+        return when (viewType) {
+            0 -> {
+                val binding = MissionCardBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
+                MissionViewHolder(binding)
+            }
+
+            1 -> {
+                val binding =
+                    DateElementBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                DateViewHolder(binding)
+            }
+
+            else -> {
+                throw Exception("oh no")
+            }
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val sectionedParent = list[position]
-
-        holder.viewDataBinding.tvTitle.text = sectionedParent.date
-
-        holder.viewDataBinding.recyclerParent.apply {
-            adapter = ChildAdapter(sectionedParent.dataList)
+        when (holder) {
+            is DateViewHolder -> holder.bind(sectionedParent as Date)
+            is MissionViewHolder -> holder.bind(sectionedParent as Mission)
         }
     }
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return list[position].id
     }
 }

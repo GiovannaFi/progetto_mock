@@ -29,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="6dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/parent_recycler_view"
+                tools:listitem="@layout/mission_card"
                 tools:visibility="visible" />
 
         </LinearLayout>

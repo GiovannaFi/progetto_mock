@@ -4,9 +4,7 @@ import androidx.lifecycle.ViewModel
 
 class ViewModelScarico() : ViewModel() {
 
-    val isChecked : Boolean = false
+    var isChecked : Boolean = false //mutable live data di boolean
 
-    fun checkBox() : Boolean{
-        return !isChecked
-    }
+
 }
