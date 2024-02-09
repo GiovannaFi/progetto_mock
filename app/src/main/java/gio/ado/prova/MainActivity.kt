@@ -1,12 +1,16 @@
 package gio.ado.prova
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import gio.ado.prova.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var parentAdapter: ParentAdapter
+
 
     private val missionList = listOf(
         FakeNetworkObject(
@@ -41,11 +45,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val binding =
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        parentAdapter = ParentAdapter(fromNetworkObjToElement(missionList))
 
 
         binding.recyclerViewDischargingMissions.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = ParentAdapter(fromNetworkObjToElement(missionList))
+            adapter = parentAdapter
+        }
+
+        binding.fabDischargingMissionsNext.setOnClickListener {
+            val selectedMissions = parentAdapter.getSelectedMissionTitles()
+            if (selectedMissions.isNotEmpty()) {
+                val toastMessage = "Missioni selezionate: ${selectedMissions.joinToString(", ")}"
+                Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Nessuna missione selezionata", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

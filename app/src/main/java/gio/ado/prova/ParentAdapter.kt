@@ -11,7 +11,7 @@ import gio.ado.prova.databinding.DateElementBinding
 import gio.ado.prova.databinding.MissionCardBinding
 
 class ParentAdapter(
-    private val list: List<Element>
+    private val list: List<Element>,
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -20,7 +20,7 @@ class ParentAdapter(
     inner class MissionViewHolder(private val binding: MissionCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(mission: Mission) {
-            binding.checkbox.setOnCheckedChangeListener { buttonView, isChecked -> //TWO WAY BINDING, FIGATA!
+            binding.checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
                 if (mission in cardChecked) {
                     cardChecked.remove(mission)  //la card è nella lista, significa che è checkata e quindi la togliamo dalla lista per uncheckarla, posso usarla nel prossimo screen?
                     Log.d("CHECK FALSE?", "title = ${mission.title}, è $isChecked")
@@ -48,7 +48,6 @@ class ParentAdapter(
                 )
                 binding.openableCard.visibility = View.GONE
             }
-
             binding.mission = mission
             binding.executePendingBindings()
         }
@@ -101,5 +100,9 @@ class ParentAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return list[position].id
+    }
+
+    fun getSelectedMissionTitles(): List<String> {
+        return cardChecked.map { it.title }
     }
 }
