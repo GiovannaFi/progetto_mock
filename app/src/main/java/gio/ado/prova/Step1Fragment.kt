@@ -1,19 +1,16 @@
 package gio.ado.prova
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
 import gio.ado.prova.databinding.Step1FragmentBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import java.util.ArrayList
 
 class Step1Fragment : Fragment() {
 
@@ -70,13 +67,13 @@ class Step1Fragment : Fragment() {
         }
 
         binding.fabDischargingMissionsNext.setOnClickListener {
-           runBlocking { delay(8000) }
             val selectedMissions = step1Adapter.getSelectedMissionTitles()
             if (selectedMissions.isNotEmpty()) {
 
                 findNavController().navigate(R.id.step2Fragment)
             } else {
-                Toast.makeText(requireContext(), "Nessuna missione selezionata", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Nessuna missione selezionata", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
