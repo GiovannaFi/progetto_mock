@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="6dp">
+
+            <TextView
+                android:id="@+id/txt_scan_mission_identifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="6dp"
+                android:text="Scansiona l’identificativo di missione che ha precedentemente stampato dal dettaglio missione"
+                android:textAlignment="center"
+                android:textColor="@color/orange" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_discharging_missions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/mission_card"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_discharging_missions_next"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:tint="@android:color/white"
+            android:contentDescription="fab" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

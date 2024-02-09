@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/step1Fragment"
+    >
+
+    <fragment
+        android:id="@+id/step1Fragment"
+        android:name="gio.ado.prova.Step1Fragment"
+        android:label="Step1Fragment" >
+        <action
+            android:id="@+id/action_step1Fragment_to_step2Fragment"
+            app:destination="@id/step2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/step2Fragment"
+        android:name="gio.ado.prova.Step2Fragment"
+        android:label="Step2Fragment" > />
+    </fragment>
+
+
+</navigation>

@@ -253,8 +253,6 @@
                                 android:id="@+id/checkbox"
                                 android:layout_width="37dp"
                                 android:layout_height="44dp"
-                                android:buttonTint="@color/splash_background"
-                               android:textColor="@android:color/black"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -271,7 +269,6 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:tint="@color/black"
                                 android:visibility="invisible"/>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>

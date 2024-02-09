@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import gio.ado.prova.databinding.DateElementBinding
 import gio.ado.prova.databinding.MissionCardBinding
 
-class ParentAdapter(
+class Step1Adapter(
     private val list: List<Element>,
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -102,7 +102,7 @@ class ParentAdapter(
         return list[position].id
     }
 
-    fun getSelectedMissionTitles(): List<String> {
-        return cardChecked.map { it.title }
+    fun getSelectedMissionTitles(): List<Mission> {
+        return cardChecked
     }
 }
